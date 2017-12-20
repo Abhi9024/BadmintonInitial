@@ -1,10 +1,12 @@
-<div>
-        <div class="row">
-                <h3>Umpire List</h3>
-                <div class="col-sm-6" *ngFor="let umpire of umpiresList | async">
-                    <p><span><b>Umpire Email Id: </b></span>{{umpire.Email}}</p>
-                    <p><span><b>Name: </b></span>{{umpire.Name}}</p>
-                    <p><span><b>Contact Number: </b></span>{{umpire.Phone}}</p>
-                </div>
-             </div>
-</div>
+
+<div class="container">
+    <h2>Umpire List</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let umpire of umpiresList | async">
+            <p><span><b>Name: </b></span>{{umpire.Name}}</p>           
+            <p><span><b>Umpire Email Id: </b></span>{{umpire.Email}}</p>
+            <p><span><b>Contact Number: </b></span>{{umpire.Phone}}</p>
+      </li>
+    </ul>
+  </div>
+  

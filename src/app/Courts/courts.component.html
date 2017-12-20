@@ -1,12 +1,15 @@
 
-<div>
-  
-   <div class="row">
-        <h3>Court List</h3>
-      <div class="col-sm-6" *ngFor="let court of courtList | async">
-          <p><span><b>Court Id: </b></span>{{court.CourtId}}</p>
-          <p><span><b>Court Number: </b></span>{{court.CourtNumber}}</p>
-      </div>
-   </div>
-   
-</div>
+      <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Court Id</th>
+                <th scope="col">Court Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let court of courtList | async">
+                <th scope="row">{{court.CourtId}}</th>
+                <td>{{court.CourtNumber}}</td>
+              </tr>
+            </tbody>
+          </table>

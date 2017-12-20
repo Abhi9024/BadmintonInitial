@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Player List</h2>
+  <p>Below are the list of players participating</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Seeding</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Singles</th>
+        <th>Doubles</th>
+        <th>Double-Partner</th>
+        <th>MixedDoubles</th>
+        <th>MixedDouble-Partner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of playerList | async">
+        <td>{{player.playerNumber}}</td>
+        <td>{{player.name}}</td>
+        <td>{{player.age}}</td>
+        <td>{{player.gender}}</td>
+        <td>{{player.singles}}</td>
+        <td>{{player.doubles}}</td>
+        <td>{{player.doublesPartnerNum}}</td>
+        <td>{{player.mixed_doubles}}</td>
+        <td>{{player.mix_doublesPartnerNumb}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

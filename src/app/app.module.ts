@@ -14,12 +14,21 @@ import { AppNavComponent } from './app-nav/app-nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CourtsComponent } from './Courts/courts.component';
 import { UmpireComponent } from './Umpires/umpire.component';
+import { PlayerComponent } from './player/player.component';
+import { PlayerService } from 'app/services/player.service';
+import { CourtService } from 'app/services/court.service';
+import { UmpireService } from 'app/services/umpire.service';
+import { DrawComponent } from './draw/draw.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const appRoutes: Routes = [
   { path: 'courts', component: CourtsComponent },
   { path: 'umpires', component: UmpireComponent },
+  { path: 'players', component: PlayerComponent },
+  { path: 'draw', component: DrawComponent },
+  { path: 'schedule', component: ScheduleComponent },
   { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: '/not-found' }
+  { path: '**', redirectTo: '/courts' }
 ];
 
 @NgModule({
@@ -29,7 +38,10 @@ const appRoutes: Routes = [
     NotFoundComponent,
 
     CourtsComponent,
-    UmpireComponent
+    UmpireComponent,
+    PlayerComponent,
+    DrawComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +52,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [PlayerService,CourtService,UmpireService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

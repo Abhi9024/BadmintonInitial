@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, AngularFireDatabaseModule  } from 'angularfire2/database';
-import {  AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth'; 
-import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import { CourtService } from 'app/services/court.service';
+import { ICourt } from 'app/models/ICourt';
 
 @Component({
    selector : 'courts-courts',
@@ -10,18 +9,14 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CourtsComponent{
 
-   courtList : Observable<any[]>;
-  
+   courtList : Observable<ICourt[]>;
 
-  constructor(private db:AngularFireDatabase){
-      this.courtList = this.getCourts("/Courts");
-     
+  constructor(private courtService: CourtService){
+      this.getCourts();  
   }
   
-  getCourts(path):Observable<any[]>{
-      return this.db.list(path).valueChanges();
+  getCourts(){
+    this.courtList = this.courtService.getCourts('/Courts');
   }
-
-  
 
 }
